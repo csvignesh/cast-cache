@@ -11,9 +11,11 @@ app.set('port', (process.env.PORT || 8080));
 app.use(express.static(__dirname + '/public'));
 
 app.get('/store', function (req, res) {
-    if (req.query.k && req.query.v) {
-        client.set(req.k, req.v, (res) => {
-            console.log(res, `store ${req.query.k} = ${req.query.v}`);
+    const key = req.query.k;
+    const value = req.query.v;
+    if (key && value) {
+        client.set(key, value, (res, err) => {
+            console.log(res, err, `store ${key} = ${value}`);
         });
         res.send('DONE');
     } else {
