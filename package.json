@@ -1,23 +1,24 @@
 {
-    "name": "cast-cache",
-    "version": "1.0.0",
-    "description": "key value store wrapper",
-    "main": "index.js",
-    "scripts": {
-        "start": "node index.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/csvignesh/cast-cache.git"
-    },
-    "author": "Vignesh <vigneshcs.1988@gmail.com>",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/csvignesh/cast-cache/issues"
-    },
-    "homepage": "https://github.com/csvignesh/cast-cache#readme",
-    "dependencies": {
-        "express": "latest"
-    }
+  "name": "cast-cache",
+  "version": "1.0.0",
+  "description": "key value store wrapper",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csvignesh/cast-cache.git"
+  },
+  "author": "Vignesh <vigneshcs.1988@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/csvignesh/cast-cache/issues"
+  },
+  "homepage": "https://github.com/csvignesh/cast-cache#readme",
+  "dependencies": {
+    "express": "latest",
+    "redis": "^2.7.1"
+  }
 }
