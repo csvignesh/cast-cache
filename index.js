@@ -21,10 +21,16 @@ app.get('/store', function (req, res) {
     const key = req.query.k;
     const value = req.query.v;
     if (key && value) {
-        client.set(key, value, (err, response) => {
-            console.log(err || 'NO ERROR', ' RESPONSE: ', response, `stored ${key} = ${value}`);
+        client.get(key, (err, data) => {
+            if (!err) {
+                client.set(key, (data ? `${data}||${value}` : value), (err, response) => {
+                    console.log(err || 'NO ERROR', ' RESPONSE: ', response, `stored ${key} = ${value}`);
+                    res.send(err || 'DONE');
+                });
+            } else {
+                res.send('fetch failed, Update not performed');
+            }
         });
-        res.send('DONE');
     } else {
         res.send('params missing');
     }
