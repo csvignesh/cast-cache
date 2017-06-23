@@ -2,7 +2,9 @@
 
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 8080;
+
+app.set('port', (process.env.PORT || 8080));
+app.use(express.static(__dirname + '/public'));
 
 app.get('/store', function (req, res) {
     res.send('done');
@@ -16,6 +18,6 @@ app.get('/', function (req, res) {
     res.send('U have to ask the right question');
 });
 
-app.listen(port, function () {
-    console.log('App listening on port 8080 B)');
+app.listen(app.get('port'), function() {
+    console.log("Node app is running at localhost:" + app.get('port'));
 });
