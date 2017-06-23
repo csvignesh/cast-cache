@@ -13,7 +13,7 @@ app.use(express.static(__dirname + '/public'));
 app.get('/store', function (req, res) {
     if (req.query.k && req.query.v) {
         client.set(req.k, req.v, (res) => {
-            console.log(res, `store ${res.query.k} = ${res.query.v}`);
+            console.log(res, `store ${req.query.k} = ${req.query.v}`);
         });
         res.send('DONE');
     } else {
