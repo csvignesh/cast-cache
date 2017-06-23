@@ -15,6 +15,6 @@ app.get('/', function (req, res) {
     res.send('U have to ask the right question');
 });
 
-app.listen(80, function () {
-    console.log('App listening on port 80 B)');
+app.listen(8080, function () {
+    console.log('App listening on port 8080 B)');
 });
