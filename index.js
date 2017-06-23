@@ -15,7 +15,7 @@ app.get('/store', function (req, res) {
     const value = req.query.v;
     if (key && value) {
         client.set(key, value, (err, response) => {
-            console.log(err || 'NO ERROR', response, `store ${key} = ${value}`);
+            console.log(err || 'NO ERROR', ' RESPONSE: ', response, `stored ${key} = ${value}`);
         });
         res.send('DONE');
     } else {
@@ -26,9 +26,13 @@ app.get('/store', function (req, res) {
 app.get('/get', function (req, res) {
     const key = req.query.k;
     if (key) {
-        client.get(key, (err, resp) => {
-            console.log(err, resp);
-            res.send('CHECK logs');
+        client.get(key, (err, data) => {
+            if (err) {
+                console.log('FETCH FAILED', err, data);
+            } else {
+                console.log('FETCH SUCCESSFUL', data);
+                res.send(data);
+            }
         });
     } else {
         res.send('param missing');
